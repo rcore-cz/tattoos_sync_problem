@@ -1,7 +1,7 @@
 TATTOOS = {
     {
         collection = 'mpbeach_overlays',
-        name = "MP_Bea_M_RArm_000" -- tribal tattoo
+        name = "MP_Bea_M_RArm_000" -- Should be invisible for second char
     },
     {
         collection = 'rcore_overlays_test3',
@@ -9,7 +9,7 @@ TATTOOS = {
     },
     {
         collection = 'rcore_overlays_test2',
-        name = "test2_10_M" -- Chicken, should be invisible for second char
+        name = "test2_10_M" -- chicken
     },
 }
 
@@ -19,6 +19,7 @@ RegisterCommand('tat_apply', function(source, args)
     for _, t in pairs(TATTOOS) do
         AddPedDecorationFromHashes(ped, GetHashKey(t.collection), GetHashKey(t.name))
     end
+    print("Tattoos reapplied.")
 end)
 
 RegisterCommand('tat_naked', function(source, args)
@@ -53,10 +54,11 @@ RegisterCommand('tat_naked', function(source, args)
     end
 
     SetPedPropIndex(ped, 1, character['glasses_1'], character['glasses_2'], 2) -- Glasses
+    print("Character should now be in underwear.")
 end)
 
 RegisterCommand('tat_request', function(source, args)
-    local name = 'test2_10'
+    local name = 'mp_bea_tat_m_009'
     print('Is ' .. name .. ' streamed: ' .. tostring(HasStreamedTextureDictLoaded(name)))
     RequestStreamedTextureDict(name)
 
