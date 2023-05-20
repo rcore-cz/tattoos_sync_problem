@@ -1,18 +1,19 @@
 TATTOOS = {
     {
         collection = 'mpbeach_overlays',
-        name = "MP_Bea_M_RArm_000" -- Should be invisible for second char
+        name = "MP_Bea_M_RArm_000" -- Should have a sync problem for second char (won't see it)
     },
     {
-        collection = 'rcore_overlays_test3',
-        name = "test3_2_M" -- flame
+        collection = 'addon_overlays_test3',
+        name = "test3_2_M" -- flame tattoo
     },
     {
-        collection = 'rcore_overlays_test2',
-        name = "test2_10_M" -- chicken
+        collection = 'addon_overlays_test2',
+        name = "test2_10_M" -- chicken tattoo
     },
 }
 
+-- command that removes all tattoos from player and applies all tattoos from the defined list
 RegisterCommand('tat_apply', function(source, args)
     local ped = PlayerPedId()
     ClearPedDecorations(ped)
@@ -20,8 +21,9 @@ RegisterCommand('tat_apply', function(source, args)
         AddPedDecorationFromHashes(ped, GetHashKey(t.collection), GetHashKey(t.name))
     end
     print("Tattoos reapplied.")
-end)
+end, false)
 
+-- command that should leave player only with underwear (if not, change IDs in Config.NakedPartsIds) 
 RegisterCommand('tat_naked', function(source, args)
     local ped = PlayerPedId()
     local character = {}
@@ -55,10 +57,11 @@ RegisterCommand('tat_naked', function(source, args)
 
     SetPedPropIndex(ped, 1, character['glasses_1'], character['glasses_2'], 2) -- Glasses
     print("Character should now be in underwear.")
-end)
+end, false)
 
+-- This command manually requests the ytd for the faulty tattoo
 RegisterCommand('tat_request', function(source, args)
-    local name = 'mp_bea_tat_m_009'
+    local name = 'mp_bea_tat_m_009' -- the tribal tattoo ytd
     print('Is ' .. name .. ' streamed: ' .. tostring(HasStreamedTextureDictLoaded(name)))
     RequestStreamedTextureDict(name)
 
@@ -68,8 +71,9 @@ RegisterCommand('tat_request', function(source, args)
         Wait(300)
     end
     print(name .. ' loaded sucessfully')
-end)
+end, false)
 
+-- Restarts second addon pack
 RegisterCommand('tat_restart', function(source, args)
-    ExecuteCommand('ensure rcore_addon_tattoos_test2')
-end)
+    ExecuteCommand('ensure addon_tattoos_test2')
+end, false)
