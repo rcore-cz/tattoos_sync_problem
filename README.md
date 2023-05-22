@@ -9,10 +9,11 @@ Long description and stuff we know so far available in the [details.md](details.
 ## How to use
 
 1. ❗ Use server build 2802 (`set sv_enforceGameBuild 2802` in server.cfg) ❗
-2. Start the resource as a whole folder to also load the addon tattoos! - `ensure [tattoos_problem]`
+2. Star the resource **only** as a folder to keep the start order for addon packs! - `ensure [tattoos_problem]` in server.cfg
 3. Make sure to not have any other addon tattoos loaded.
 4. Regarding point 4, a clean server is recommended.
-5. Go ingame with two different clients/players
+5. Start the server
+6. Go ingame with two different clients/players
 
 - **P1** - Player 1
 - **P2** - Player 2
