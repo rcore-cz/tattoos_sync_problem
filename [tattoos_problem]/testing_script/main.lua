@@ -4,14 +4,20 @@ TATTOOS = {
         name = "MP_Bea_M_RArm_000" -- Should have a sync problem for second char (won't see it)
     },
     {
-        collection = 'addon_overlays_test3',
+        collection = 'rc_overlays_test3',
         name = "test3_2_M" -- flame tattoo
     },
     {
-        collection = 'addon_overlays_test2',
+        collection = 'rc_overlays_test2',
         name = "test2_10_M" -- chicken tattoo
     },
 }
+
+RegisterCommand('tat_clear', function()
+    local ped = PlayerPedId()
+    ClearPedDecorations(ped)
+    print("Tattoos cleared.")
+end, false)
 
 -- command that removes all tattoos from player and applies all tattoos from the defined list
 RegisterCommand('tat_apply', function(source, args)
@@ -32,22 +38,23 @@ RegisterCommand('tat_naked', function(source, args)
         character[k] = v
     end
 
+    SetPedComponentVariation(ped, 8, character['tshirt_1'], character['tshirt_2'], 2)
+    SetPedComponentVariation(ped, 11, character['torso_1'], character['torso_2'], 2)
+    SetPedComponentVariation(ped, 3, character['arms'], 0, 2)
+    SetPedComponentVariation(ped, 4, character['pants_1'], character['pants_2'], 2)
+    SetPedComponentVariation(ped, 6, character['shoes_1'], character['shoes_2'], 2)
+
+    SetPedComponentVariation(ped, 10, character['decals_1'], character['decals_2'], 2)
+    SetPedComponentVariation(ped, 1, character['mask_1'], character['mask_2'], 2)
+    SetPedComponentVariation(ped, 9, character['bproof_1'], character['bproof_2'], 2)
+    SetPedComponentVariation(ped, 7, character['chain_1'], character['chain_2'], 2)
+    SetPedComponentVariation(ped, 5, character['bags_1'], character['bags_2'], 2)
+    
     if character['ears_1'] == -1 then
         ClearPedProp(ped, 2)
     else
         SetPedPropIndex(ped, 2, character['ears_1'], character['ears_2'], 2) -- Ears Accessories
     end
-
-    SetPedComponentVariation(ped, 8, character['tshirt_1'], character['tshirt_2'], 2)  -- Tshirt
-    SetPedComponentVariation(ped, 11, character['torso_1'], character['torso_2'], 2)   -- torso parts
-    SetPedComponentVariation(ped, 3, character['arms'], 0, 2)                          -- torso
-    SetPedComponentVariation(ped, 10, character['decals_1'], character['decals_2'], 2) -- decals
-    SetPedComponentVariation(ped, 4, character['pants_1'], character['pants_2'], 2)    -- pants
-    SetPedComponentVariation(ped, 6, character['shoes_1'], character['shoes_2'], 2)    -- shoes
-    SetPedComponentVariation(ped, 1, character['mask_1'], character['mask_2'], 2)      -- mask
-    SetPedComponentVariation(ped, 9, character['bproof_1'], character['bproof_2'], 2)  -- bulletproof
-    SetPedComponentVariation(ped, 7, character['chain_1'], character['chain_2'], 2)    -- chain
-    SetPedComponentVariation(ped, 5, character['bags_1'], character['bags_2'], 2)      -- Bag
 
     if character['helmet_1'] == -1 then
         ClearPedProp(ped, 0)

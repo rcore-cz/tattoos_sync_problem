@@ -4,9 +4,7 @@
 
 Some tattoos are not syncing to other players, even though they are loaded and streamed correctly. This happens only with some tattoos, and the ones that are not visible depend on the server build. The problem does not seem to be related to exceeding the TxdStore pool, loaded ytds, or the number of addon tattoos ingame. The problem also occurs with base GTA tattoos.
 
-Long description and stuff we know so far available in the [forum post](https://forum.cfx.re/).
-
-<!-- TODO: add link -->
+Long description and stuff we know so far available in the [details.md](details.md) file.
 
 ## How to use
 

@@ -1,10 +1,12 @@
 fx_version 'cerulean'
-game 'gta5'
+games { 'gta5' }
+
+author 'Tattoo problem'
+description 'Tattoo sync problem test script'
+version '1.0.0'
+
 
 client_scripts {
-    "client/*.lua",
-}
-
-shared_scripts {
-    'config.lua'
+    'main.lua',
+    'config.lua',
 }
