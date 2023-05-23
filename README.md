@@ -1,4 +1,4 @@
-# FiveM Addon Tattoos Bug
+# FiveM Tattoos Bug
 
 ## Brief problem description
 
@@ -11,7 +11,7 @@ Some tattoos are not syncing to other players, even though they are loaded and s
 
 1. ❗ Use server build 2802 (`set sv_enforceGameBuild 2802` in server.cfg) ❗
 2. Star the resource **only** as a folder to keep the start order for addon packs! - `ensure [tattoos_problem]` in server.cfg
-3. Make sure to not have any other addon tattoos loaded.
+3. Make sure to not have any addon tattoos loaded.
 4. Regarding point 4, a clean server is recommended.
 5. Start the server
 6. Go in-game with two different clients/players
